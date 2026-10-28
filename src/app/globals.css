@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1b2f6b;
+  --color-navy-deep: #111e47;
+  --color-stripe: #c8202f;
+  --color-sign: #f4c21b;
+  --color-paper: #f5f2ea;
+  --color-paper-dim: #e8e3d6;
+  --color-ink: #12151c;
+  --color-ink-soft: #444a57;
+
+  --font-display: var(--font-big-shoulders), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-barlow), system-ui, sans-serif;
+
+  --ease-door: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-sign);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* The storefront's navy / red / yellow band, used as the site's divider. */
+  .tri-stripe {
+    height: 1.25rem;
+    background: linear-gradient(
+      to bottom,
+      var(--color-navy) 0 40%,
+      var(--color-stripe) 40% 70%,
+      var(--color-sign) 70% 100%
+    );
+  }
+
+  /* Garage-door roll-up reveal: slats lift away bottom-to-top. */
+  .door {
+    position: relative;
+    overflow: hidden;
+  }
+  .js .door::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--color-paper-dim) 0 22px,
+      #d6d0c0 22px 24px
+    );
+    transform-origin: top;
+    transition: transform 1s var(--ease-door);
+    pointer-events: none;
+  }
+  .js .door.is-open::after {
+    transform: scaleY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js .door::after {
+      display: none;
+    }
+  }
+
+  .js .rise {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.7s var(--ease-door),
+      transform 0.7s var(--ease-door);
+  }
+  .js .rise.is-open {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js .rise {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
