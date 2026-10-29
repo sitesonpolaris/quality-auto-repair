@@ -4,7 +4,7 @@ One-pager, Standard tier. Built by Sites on Polaris, Oct 2026.
 
 ## Status
 - Code is on `main`. Netlify project: import from GitHub under team `sitesonpolaris`, name `quality-auto-repair-gastonia` (planned URL https://quality-auto-repair-gastonia.netlify.app, set in `src/lib/site.ts`). Netlify site id: _add once imported_.
-- **Hero video is NOT in the repo yet.** The final edit lives in Higgsfield storage. Run `scripts/fetch-hero.sh` (needs `d2ol7oe51mr4n9.cloudfront.net` reachable), then commit `public/video/` and push. The script checks sha256 sums.
+- Hero video is in `public/video/` (fetched from Higgsfield storage with `scripts/fetch-hero.sh`, sha256-checked).
 - Repo is currently **public**; Jesse chose to leave it for now. Rules say private.
 
 ## Business data (Google Business Profile, Oct 2026)
