@@ -47,16 +47,16 @@ export default function QuoteForm() {
   }
 
   return (
-    <form name="quote" onSubmit={onSubmit} className="grid gap-4 rounded-lg bg-white p-6 shadow-sm sm:grid-cols-2 sm:p-8">
+    <form name="quote" method="post" action="/__forms.html" onSubmit={onSubmit} className="grid gap-4 rounded-lg bg-white p-6 shadow-sm sm:grid-cols-2 sm:p-8">
       <input type="hidden" name="form-name" value="quote" />
       <p className="hidden">
         <label>
-          Don&rsquo;t fill this out: <input name="bot-field" />
+          Don&rsquo;t fill this out: <input type="text" name="bot-field" tabIndex={-1} autoComplete="off" />
         </label>
       </p>
       <label className="grid gap-1.5 text-sm font-semibold text-ink">
         Name
-        <input name="name" required autoComplete="name" className={field} />
+        <input type="text" name="name" required autoComplete="name" className={field} />
       </label>
       <label className="grid gap-1.5 text-sm font-semibold text-ink">
         Phone
@@ -64,7 +64,7 @@ export default function QuoteForm() {
       </label>
       <label className="grid gap-1.5 text-sm font-semibold text-ink">
         Vehicle (year, make, model)
-        <input name="vehicle" placeholder="2015 Honda Accord" className={field} />
+        <input type="text" name="vehicle" placeholder="2015 Honda Accord" className={field} />
       </label>
       <label className="grid gap-1.5 text-sm font-semibold text-ink">
         Service
