@@ -3,7 +3,7 @@
 One-pager, Standard tier. Built by Sites on Polaris, Oct 2026.
 
 ## Status
-- Code is on `main`. Netlify project: import from GitHub under team `sitesonpolaris`, name `quality-auto-repair-gastonia` (planned URL https://quality-auto-repair-gastonia.netlify.app, set in `src/lib/site.ts`). Netlify site id: _add once imported_.
+- Netlify project `quality-auto-repair-gastonia`, team `sitesonpolaris`. Live: https://quality-auto-repair-gastonia.netlify.app (continuous deploy from `main`). Netlify site id: `1fb59ea4-7eeb-40ef-8230-22343d87f779`. Form detection had to be enabled manually (new Netlify projects ship with it off).
 - Hero video is in `public/video/` (fetched from Higgsfield storage with `scripts/fetch-hero.sh`, sha256-checked).
 - Repo is currently **public**; Jesse chose to leave it for now. Rules say private.
 
